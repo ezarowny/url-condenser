@@ -21,4 +21,5 @@ from condensed_urls import views as condensed_url_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', condensed_url_views.index, name="index"),
+    url(r'^(?P<condensed_url_id>[\w=]+)$', condensed_url_views.parse_condensed_url, name="parse_condensed_url")
 ]
