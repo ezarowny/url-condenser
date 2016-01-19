@@ -14,7 +14,7 @@ class CondensedUrl(models.Model):
     """
     original_url = models.URLField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
-    #visited_count = models.IntegerField(default=0)
+    visited_count = models.IntegerField(default=0)
 
     def condensed_url(self):
         """

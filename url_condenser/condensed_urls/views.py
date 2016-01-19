@@ -45,6 +45,12 @@ def parse_condensed_url(request, condensed_url_code):
     # TODO unicode madness may break this - thanks Python2!
     decoded_url_id = base64.urlsafe_b64decode(condensed_url_code.encode('ascii'))
     condensed_url = get_object_or_404(CondensedUrl, pk=int(decoded_url_id))
+    
+    # TODO this seems to be behaving a little weirdly - it doesn't seem
+    # to increment if the parse view is opened in a new tab?
+    condensed_url.visited_count += 1
+    condensed_url.save()
+
     return HttpResponsePermanentRedirect(condensed_url.original_url)
 
 
