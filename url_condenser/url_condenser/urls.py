@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from condensed_urls import views as condensed_url_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', condensed_url_views.index, name="index"),
 ]

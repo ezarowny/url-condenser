@@ -1,0 +1,16 @@
+{% extends "condensed_urls/base.html" %}
+
+{% block content %}
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>URL Condenser</h1>
+	    <p>From concentrate!</p>
+	</div>
+
+	<form action="/" method="post">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Submit" />
+	</form>
+</div>
+{% endblock %}
